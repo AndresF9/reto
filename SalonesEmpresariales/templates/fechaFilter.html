@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla de Eventos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+
+    <form method="POST">
+        <h1>Fecha de inicio</h1>
+        <input type="date" name="fechaI">
+
+        <h1>Fecha de fin</h1>
+        <input type="date" name="fechaF">
+
+        <button type="submit"> Enviar </button>
+    </form>
+    <p>{{ mensaje }}
+    </p>
+
+
+    <h1>Tabla de Eventos</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Identificación</th>
+                <th>Teléfono</th>
+                <th>Ciudad</th>
+                <th>Fecha de Evento</th>
+                <th>Cantidad de Personas</th>
+                <th>Motivo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for evento in eventos %}
+            <tr>
+                <td>{{ evento.Cliente.Nombre }}</td>
+                <td>{{ evento.Cliente.Identificacion }}</td>
+                <td>{{ evento.Cliente.Telefono }}</td>
+                <td>{{ evento.Cliente.Ciudad }}</td>
+                <td>{{ evento.Fecha }}</td>
+                <td>{{ evento.Personas }}</td>
+                <td>{{ evento.motivo }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
